@@ -13,7 +13,7 @@
   min-height: 100vh;
   min-width: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(16, 6, 105);
+  background-color: rgb(48, 37, 143);
   box-sizing: border-box;
   padding-top: 10px;
 }

@@ -56,8 +56,8 @@ export default {
         ></textarea>
       </div>
 
-      <div class="button=container margin-top">
-        <button type="submit">Enviar</button>
+      <div class="button-container">
+        <button type="submit">ENVIAR</button>
       </div>
     </form>
   </div>
@@ -75,12 +75,14 @@ export default {
   box-sizing: border-box;
   background-color: rgb(71, 68, 68);
   color: rgb(255, 255, 255);
+  border-radius: 15px;
 }
 
 .title-form {
   background-color: rgb(73, 11, 131);
   padding: 20px;
   font-size: 24px;
+  border-radius: 15px 15px 0 0;
 }
 
 .sticker {
@@ -127,7 +129,27 @@ export default {
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.button-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 360px;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 0px 0px 15px 15px;
+  text-align: end;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: rgb(63, 15, 139);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
 .margin-top {
   margin-top: 20px;
+  padding-left: 20px;
 }
 </style>
