@@ -1,6 +1,7 @@
 <script>
 export default {
   name: "FormComponent",
+
   data() {
     return {
       form: {
@@ -11,24 +12,54 @@ export default {
       stickersOptions: ["React", "Vue", "Angular"],
     };
   },
+
+  methods: {
+    submit() {
+      if (this.form.stickers.length === 0) {
+        alert("Por favor, selecione ao menos um sticker");
+        return;
+      } else if (this.form.stickersQTD === 0) {
+        alert("Você deve selecionar uma quantidade maior do que zero");
+        return
+      }
+
+      return alert("Ingressos encomendados com sucesso!");
+    },
+
+    addSticker() {
+      this.form.stickersQTD += 1
+    },
+
+    removeSticker() {
+      if (this.form.stickersQTD > 0) {
+        this.form.stickersQTD -= 1
+      }
+
+    }
+  }
 };
 </script>
 
 <template>
   <div class="form-container" @submit.prevent>
     <div class="title-form">
-      <p>Formulário para compra de <strong> Pacote de adesivos </strong></p>
+      <p>
+        Formulário para compra de
+        <strong>Pacote de adesivos</strong>
+      </p>
     </div>
 
     <form>
       <div class="stickers-options margin-top">
         <p>Selecione seus adesivos:</p>
-        <div
-          class="sticker"
-          v-for="(sticker, index) in stickersOptions"
-          :key="index"
-        >
-          <input type="checkbox" :name="sticker" :id="sticker" />
+        <div class="sticker" v-for="(sticker, index) in stickersOptions" :key="index">
+          <input
+            type="checkbox"
+            :name="sticker"
+            :id="sticker"
+            :value="sticker"
+            v-model="form.stickers"
+          />
           <label :for="sticker">{{ sticker }}</label>
         </div>
       </div>
@@ -36,28 +67,19 @@ export default {
       <div class="stickers-qtd margin-top">
         <p>Quantos adesivos de cada?</p>
         <div class="sticker-qtd-input">
-          <button>-</button>
-          <input
-            readonly
-            type="number"
-            name="stickersQTD"
-            v-model="form.stickersQTD"
-          />
-          <button>+</button>
+          <button @click="removeSticker()">-</button>
+          <input readonly type="number" name="stickersQTD" v-model="form.stickersQTD" />
+          <button @click="addSticker()">+</button>
         </div>
       </div>
 
       <div class="message margin-top">
         <p>Observação:</p>
-        <textarea
-          name="message"
-          v-model="form.message"
-          placeholder="Alguma dúvida? Deixe aqui!"
-        ></textarea>
+        <textarea name="message" v-model="form.message" placeholder="Alguma dúvida? Deixe aqui!"></textarea>
       </div>
 
       <div class="button-container">
-        <button type="submit">ENVIAR</button>
+        <button type="submit" @click="submit()">ENVIAR</button>
       </div>
     </form>
   </div>
