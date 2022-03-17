@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <div class="form-container">
+  <div class="form-container" @submit.prevent>
     <div class="title-form">
       <p>Formulário para compra de <strong> Pacote de adesivos </strong></p>
     </div>
@@ -84,6 +84,29 @@ export default {
   margin-right: 10px;
 }
 
+.sticker-qtd-input {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.sticker-qtd-input button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 20px;
+  background-color: rgb(63, 15, 139);
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+
+.sticker-qtd-input input {
+  width: 50px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  padding-left: 10px;
+}
 .margin-top {
   margin-top: 20px;
 }
