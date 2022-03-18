@@ -16,14 +16,15 @@ export default {
   methods: {
     submit() {
       if (this.form.stickers.length === 0) {
-        alert("Por favor, selecione ao menos um sticker");
-        return;
+        alert("Não é possível enviar um formulário sem stickers");
+        return "Não é possível enviar um formulário sem stickers";
       } else if (this.form.stickersQTD === 0) {
-        alert("Você deve selecionar uma quantidade maior do que zero");
-        return
+        alert("Adicione ao menos um sticker");
+        return "Adicione ao menos um sticker"
       }
 
-      return alert("Ingressos encomendados com sucesso!");
+      alert("Ingressos encomendados com sucesso!");
+      return "Ingressos encomendados com sucesso!";
     },
 
     addSticker() {
